@@ -10,4 +10,6 @@ public interface TicketRepository extends JpaRepository<Ticket, UUID> {
     List<Ticket> findByStatus(Ticket.Status status);
 
     List<Ticket> findByUserId(UUID userId);
+
+    List<Ticket> findByStatusAndUserId(Ticket.Status status, UUID userId);
 }
