@@ -26,8 +26,6 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> findUserById(@PathVariable String id) throws UserNotFoundException {
-        System.out.println("En Controller de users GET by ID. Id: " + id);
-
         User userFound = findUserByIdUseCase.execute(UUID.fromString(id));
 
         return ResponseEntity.ok(UserMapper.toDTO(userFound));
