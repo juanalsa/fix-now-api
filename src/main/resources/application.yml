@@ -22,6 +22,13 @@ spring:
   cache:
     type: redis
 
-jwt:
-  secret: "miClaveSuperSecreta"
-  expiration: 300000 # 5 min en milisegundos
+security:
+  jwt:
+    secret-key: U2VkZWJlZ2VuZXJhcnVuYXNlbWlsbGFsb3N1ZmljaWVudGVtZW50ZWdyYW5kZXBhcmFwb2RlcnF1ZWN1bXBsYWNvbmxvc3JlcXVpc2l0b3M=
+    expiration-in-minutes: 30
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

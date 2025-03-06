@@ -12,6 +12,8 @@ public class UserMapper {
                 .id(user.getId().toString())
                 .name(user.getName())
                 .lastName(user.getLastName())
+                .userName(user.getUsername())
+                .password(user.getPassword())
                 .build();
     }
 
@@ -20,6 +22,8 @@ public class UserMapper {
                 .id(userDTO.id() != null ? UUID.fromString(userDTO.id()) : null)
                 .name(userDTO.name())
                 .lastName(userDTO.lastName())
+                .userName(userDTO.userName())
+                .password(userDTO.password())
                 .build();
     }
 }

@@ -11,6 +11,12 @@ public record UserDTO(
         String name,
 
         @NotBlank(message = "Last name is mandatory")
-        String lastName
+        String lastName,
+
+        @NotBlank(message = "User name is mandatory")
+        String userName,
+
+        @NotBlank(message = "Password is mandatory")
+        String password
 ) {
 }

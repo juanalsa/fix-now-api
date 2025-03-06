@@ -1,7 +1,6 @@
 package com.fixnow.api.web.controller;
 
 import com.fixnow.api.application.dto.UserDTO;
-import com.fixnow.api.application.usecases.user.CreateUserUseCase;
 import com.fixnow.api.application.usecases.user.FindUserByIdUseCase;
 import com.fixnow.api.application.usecases.user.FindUsersUseCase;
 import com.fixnow.api.application.usecases.user.ModifyUserUseCase;
@@ -21,17 +20,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final CreateUserUseCase createUserUseCase;
     private final FindUserByIdUseCase findUserByIdUseCase;
     private final FindUsersUseCase findUsersUseCase;
     private final ModifyUserUseCase modifyUserUseCase;
-
-    @PostMapping
-    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
-        User createdUser = createUserUseCase.execute(UserMapper.toEntity(userDTO));
-
-        return ResponseEntity.ok(UserMapper.toDTO(createdUser));
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> findUserById(@PathVariable String id) throws UserNotFoundException {
