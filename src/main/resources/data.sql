@@ -1,5 +1,5 @@
-INSERT INTO users (id, name, last_name, created_at, updated_at) VALUES ('7ad89fc0-1028-4d15-93af-95ac376538f8', 'Carlos', 'Perez', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO users (id, name, last_name, created_at, updated_at) VALUES ('d91adf38-2664-4614-b8f4-cf148d39bdef', 'Juan', 'Ramirez', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users (id, name, last_name, user_name, password, created_at, updated_at) VALUES ('7ad89fc0-1028-4d15-93af-95ac376538f8', 'Carlos', 'Perez', 'cperez', '12345678', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users (id, name, last_name, user_name, password, created_at, updated_at) VALUES ('d91adf38-2664-4614-b8f4-cf148d39bdef', 'Juan', 'Ramirez', 'jramirez', '87654321', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO tickets (id, description, status, user_id, created_at, updated_at)
 VALUES ('1e922874-9e7e-4cdd-aa58-5af5d0f04962', 'El sistema no responde', 'OPEN', '7ad89fc0-1028-4d15-93af-95ac376538f8', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
