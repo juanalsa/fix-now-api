@@ -12,6 +12,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Builder
 public class Ticket {
 
@@ -44,6 +45,6 @@ public class Ticket {
     }
 
     public enum Status {
-        ABIERTO, CERRADO
+        OPEN, CLOSED
     }
 }

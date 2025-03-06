@@ -1,4 +1,4 @@
-package com.fixnow.api.application.usecases;
+package com.fixnow.api.application.usecases.user;
 
 import com.fixnow.api.domain.model.User;
 import com.fixnow.api.domain.repository.UserRepository;
@@ -10,10 +10,6 @@ import org.springframework.stereotype.Service;
 public class CreateUserUseCase {
 
     private final UserRepository userRepository;
-
-    public CreateUserUseCase(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public User execute(User user) {
         return userRepository.save(user);
