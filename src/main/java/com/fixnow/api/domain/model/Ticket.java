@@ -3,6 +3,7 @@ package com.fixnow.api.domain.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -14,7 +15,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Builder
-public class Ticket {
+public class Ticket implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
