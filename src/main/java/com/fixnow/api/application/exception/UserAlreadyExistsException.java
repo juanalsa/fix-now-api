@@ -1,4 +1,4 @@
-package com.fixnow.api.web.exception;
+package com.fixnow.api.application.exception;
 
 public class UserAlreadyExistsException extends Exception {
     public UserAlreadyExistsException(String userName) {

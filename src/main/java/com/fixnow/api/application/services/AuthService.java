@@ -6,7 +6,7 @@ import com.fixnow.api.application.dto.auth.LoginResponseDTO;
 import com.fixnow.api.domain.model.User;
 import com.fixnow.api.domain.repository.UserRepository;
 import com.fixnow.api.infrastructure.mappers.UserMapper;
-import com.fixnow.api.web.exception.UserAlreadyExistsException;
+import com.fixnow.api.application.exception.UserAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
