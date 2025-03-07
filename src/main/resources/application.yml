@@ -33,6 +33,14 @@ security:
     secret-key: U2VkZWJlZ2VuZXJhcnVuYXNlbWlsbGFsb3N1ZmljaWVudGVtZW50ZWdyYW5kZXBhcmFwb2RlcnF1ZWN1bXBsYWNvbmxvc3JlcXVpc2l0b3M=
     expiration-in-minutes: 30
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
 logging:
   level:
     org:
