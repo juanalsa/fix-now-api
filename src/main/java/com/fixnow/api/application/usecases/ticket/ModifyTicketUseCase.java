@@ -15,9 +15,6 @@ public class ModifyTicketUseCase {
     private final TicketRepository ticketRepository;
 
     public Ticket execute(UUID id, Ticket ticketData) throws TicketNotFoundException {
-        System.out.println("id: " + id);
-        System.out.println("ticketData: " + ticketData);
-
         Ticket ticketFound = ticketRepository.findById(id)
                 .orElseThrow(() -> new TicketNotFoundException(id.toString()));
 

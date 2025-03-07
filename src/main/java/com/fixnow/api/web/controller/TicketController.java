@@ -23,6 +23,7 @@ public class TicketController {
 
     private final CreateTicketUseCase createTicketUseCase;
     private final FindTicketByIdUseCase findTicketByIdUseCase;
+    private final FindTicketByUserIdUseCase findTicketByUserIdUseCase;
     private final FindTicketsUseCase findTicketsUseCase;
     private final ModifyTicketUseCase modifyTicketUseCase;
     private final FilterTicketsUseCase filterTicketsUseCase;
@@ -65,6 +66,16 @@ public class TicketController {
         return ResponseEntity.ok(ticketsDTO);
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<TicketDTO>> findTicketByUserId(@PathVariable String id) {
+        List<Ticket> tickets = findTicketByUserIdUseCase.execute(UUID.fromString(id));
+        List<TicketDTO> ticketsDTO = tickets.stream()
+                .map(TicketMapper::toDTO)
+                .toList();
+
+        return ResponseEntity.ok(ticketsDTO);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<TicketDTO> modifyTicket(@PathVariable String id,
                                                   @Valid @RequestBody TicketDTO ticketDTO) throws TicketNotFoundException {
@@ -85,7 +96,7 @@ public class TicketController {
                 UUID.fromString(userId) : null;
 
         List<Ticket> tickets = filterTicketsUseCase.execute(statusParam, userIdParam);
-        
+
         List<TicketDTO> ticketsDTO = tickets.stream()
                 .map(TicketMapper::toDTO)
                 .toList();

@@ -21,6 +21,12 @@ spring:
 
   cache:
     type: redis
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: test
+      timeout: 60000 # 60 secs
 
 security:
   jwt:
