@@ -6,7 +6,7 @@ import com.fixnow.api.application.usecases.user.FindUsersUseCase;
 import com.fixnow.api.application.usecases.user.ModifyUserUseCase;
 import com.fixnow.api.domain.model.User;
 import com.fixnow.api.infrastructure.mappers.UserMapper;
-import com.fixnow.api.web.exception.UserNotFoundException;
+import com.fixnow.api.application.exception.UserNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

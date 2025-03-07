@@ -4,7 +4,7 @@ import com.fixnow.api.application.dto.UserDTO;
 import com.fixnow.api.application.dto.auth.LoginRequestDTO;
 import com.fixnow.api.application.dto.auth.LoginResponseDTO;
 import com.fixnow.api.application.services.AuthService;
-import com.fixnow.api.web.exception.UserAlreadyExistsException;
+import com.fixnow.api.application.exception.UserAlreadyExistsException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

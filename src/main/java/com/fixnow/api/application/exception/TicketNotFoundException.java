@@ -1,4 +1,4 @@
-package com.fixnow.api.web.exception;
+package com.fixnow.api.application.exception;
 
 public class TicketNotFoundException extends Exception {
     public TicketNotFoundException(String id) {

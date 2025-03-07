@@ -2,7 +2,7 @@ package com.fixnow.api.application.usecases.user;
 
 import com.fixnow.api.domain.model.User;
 import com.fixnow.api.domain.repository.UserRepository;
-import com.fixnow.api.web.exception.UserNotFoundException;
+import com.fixnow.api.application.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
