@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:fixnowdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-ui
+
+  cache:
+    type: redis
+  data:
+    redis:
+      host: redis
+      port: 6379
+      password: test
+      timeout: 60000 # 60 secs
+
+security:
+  jwt:
+    secret-key: <secret-key>
+    expiration-in-minutes: <minutes>
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
