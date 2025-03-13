@@ -1,24 +1,22 @@
 package com.fixnow.api.web.controller;
 
 import com.fixnow.api.application.dto.TicketDTO;
-import com.fixnow.api.application.usecases.ticket.*;
-import com.fixnow.api.domain.model.Ticket;
-import com.fixnow.api.domain.model.User;
-import com.fixnow.api.domain.repository.UserRepository;
-import com.fixnow.api.infrastructure.mappers.TicketMapper;
 import com.fixnow.api.application.exception.TicketNotFoundException;
 import com.fixnow.api.application.exception.UserNotFoundException;
+import com.fixnow.api.application.usecases.ticket.*;
+import com.fixnow.api.domain.model.Ticket;
+import com.fixnow.api.infrastructure.mappers.TicketMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Tag(name = "Tickets", description = "Ticket Management")
@@ -33,7 +31,7 @@ public class TicketController {
     private final FindTicketsUseCase findTicketsUseCase;
     private final ModifyTicketUseCase modifyTicketUseCase;
     private final FilterTicketsUseCase filterTicketsUseCase;
-    private final UserRepository userRepository;
+
 
     @Operation(summary = "Create new ticket", description = "Register a new ticket in the system")
     @ApiResponses(value = {
@@ -42,21 +40,9 @@ public class TicketController {
     })
     @PostMapping
     public ResponseEntity<TicketDTO> createTicket(@Valid @RequestBody TicketDTO ticketDTO) throws UserNotFoundException {
-        Optional<User> user = userRepository.findById(UUID.fromString(ticketDTO.userId()));
+        Ticket createdTicket = createTicketUseCase.execute(TicketMapper.toEntity(ticketDTO));
 
-        if (user.isEmpty()) {
-            throw new UserNotFoundException(ticketDTO.userId());
-        }
-
-        Ticket ticket = Ticket.builder()
-                .description(ticketDTO.description())
-                .user(user.get())
-                .status(Ticket.Status.valueOf(ticketDTO.status()))
-                .build();
-
-        Ticket createdTicket = createTicketUseCase.execute(ticket);
-
-        return ResponseEntity.ok(TicketMapper.toDTO(createdTicket));
+        return ResponseEntity.status(HttpStatus.CREATED).body(TicketMapper.toDTO(createdTicket));
 
     }
 
