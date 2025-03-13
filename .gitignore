@@ -33,3 +33,5 @@ build/
 .vscode/
 
 htmlReport
+
+src/main/resources/application.yml
